@@ -15,6 +15,7 @@
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           godot_4_7
+          gdscript-formatter
         ];
         shellHook = ''
           export PS1="\n\[\033[1;32m\][nix-shell:\w]\$\[\033[0m\] "
