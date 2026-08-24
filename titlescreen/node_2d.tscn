@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b7kbt6xrnh4cv"]
+
+[ext_resource type="Texture2D" uid="uid://cuj043bnvprr1" path="res://titlescreen/icon.svg" id="1_0agse"]
+
+[node name="Node2D" type="Node2D" unique_id=1862753366]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1575507653]
+position = Vector2(837, 12)
+scale = Vector2(9.09375, 5.257813)
+texture = ExtResource("1_0agse")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1085458657]
+zoom = Vector2(5.355, 5.355)
+
+[node name="Label" type="Label" parent="." unique_id=1715185088]
+offset_left = 36.0
+offset_top = -443.0
+offset_right = 76.0
+offset_bottom = -420.0
+theme_type_variation = &"HeaderLarge"
+text = "adsasda"
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=805325465]
+offset_left = -187.0
+offset_top = -465.0
+offset_bottom = -379.0
+text = "asdasd"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=58752422]
+offset_left = -108.0
+offset_top = -61.0
+offset_right = -23.0
+offset_bottom = 63.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=572904176]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 87.0
+offset_bottom = 34.0
+theme_override_font_sizes/normal_font_size = 9
+text = "Visuals"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/RichTextLabel" unique_id=1155967250]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 19.0
+offset_right = 81.0
+offset_bottom = 35.0
+theme_override_font_sizes/normal_font_size = 9
+text = "Visuals"
