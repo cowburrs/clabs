@@ -1,11 +1,9 @@
 extends MarginContainer
-@export
-var nextscene: PackedScene
 
-const nextscene = preload("res://node_2d.tscn")
+const TEST = preload("res://Test.tscn")
 
 func _on_new_game_pressed() -> void:
-	get_tree().change_scene_to_packed(nextscene)
+	get_tree().change_scene_to_packed(TEST)
 	pass # Replace with function body.
 
 func _on_config_pressed() -> void:
