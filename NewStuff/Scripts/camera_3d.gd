@@ -2,42 +2,59 @@ extends Camera3D
 
 @onready var AnimPlayer = $AnimationPlayer
 
-
-
 var zoomed = false
 const speed = 0.01
+const default_size = 15
+const default_size_zoomed = 5
+var real_position: Vector2
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	size = default_size
+	real_position = Vector2(position.x, position.y)
 	pass # Replace with function body.
+
+
+func zoommove(spd: int, csize: int, delta: float) -> void:
+	var x = real_position.x - position.x
+	var y = real_position.y - position.y
+	size += (csize - size) * delta * spd
+	position += Vector3(x, y, 0) * delta * spd
+	real_position.x = clamp(real_position.x, -12, 12)
+	real_position.y = clamp(real_position.y, -4, 10)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if zoomed:
+		zoommove(15, default_size_zoomed, delta)
+	else:
+		zoommove(5, default_size, delta)
 	pass
+
 
 func _input(event):
 	#if event is InputEventMouseMotion:
-		#translate(Vector3(event.relative.x * speed, 0, 0))
+	#translate(Vector3(event.relative.x * speed, 0, 0))
 	if event.is_action_pressed("right_click") and zoomed == false:
-		size = 5
 		zoomed = !zoomed
 		AnimPlayer.play("Zoom")
 	elif event.is_action_pressed("right_click") and zoomed == true:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-		size = 30
-		position = Vector3(0.000, 1.593, 0.018)
 		zoomed = !zoomed
 		AnimPlayer.play_backwards("Zoom")
-	
-	if event is InputEventMouseMotion and zoomed == true:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			translate(Vector3(event.relative.x * speed, -event.relative.y * speed, 0))
-	
+
+	if event is InputEventMouseMotion == true:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		real_position += Vector2(event.relative.x * speed, -event.relative.y * speed)
+
 	if event.is_action_pressed("left_click"):
 		shoot_ray()
 	pass
+
 
 func shoot_ray():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -49,5 +66,6 @@ func shoot_ray():
 	ray_query.from = from
 	ray_query.to = to
 	var raycast_result = space.intersect_ray(ray_query)
-	print(raycast_result)
-	
+	var collider = raycast_result.get("collider")
+	if collider is Anomaly:
+		collider.shot()
