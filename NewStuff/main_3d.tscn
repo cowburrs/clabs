@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dlr6fmm0i8fmw"]
+
+[ext_resource type="Script" uid="uid://bkfpj83g76fmt" path="res://NewStuff/Scripts/main_3d.gd" id="1_5o84p"]
+[ext_resource type="PackedScene" uid="uid://b8i3l2emmem2k" path="res://NewStuff/house.tscn" id="1_dr3ro"]
+[ext_resource type="PackedScene" uid="uid://cxrulsjgqg5da" path="res://NewStuff/player.tscn" id="2_5o84p"]
+[ext_resource type="Texture2D" uid="uid://othf8aoubwkb" path="res://NewStuff/person.png" id="4_6nuej"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr3ro"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_5o84p"]
+sky_material = SubResource("ProceduralSkyMaterial_dr3ro")
+
+[sub_resource type="Environment" id="Environment_6nuej"]
+background_mode = 2
+sky = SubResource("Sky_5o84p")
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i7pll"]
+radius = 0.26513672
+height = 1.0168457
+
+[node name="Main3D" type="Node3D" unique_id=1965742130]
+script = ExtResource("1_5o84p")
+
+[node name="house" parent="." unique_id=913216153 instance=ExtResource("1_dr3ro")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.35033274, 0, -3.0555868)
+
+[node name="CharacterBody3D" parent="." unique_id=1054110579 instance=ExtResource("2_5o84p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8942204, 64.5632)
+
+[node name="env" type="Node3D" parent="." unique_id=1282242378]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=1992929124]
+environment = SubResource("Environment_6nuej")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=1984621423]
+transform = Transform3D(1, 0, 0, 0, 0.66653246, 0.745476, 0, -0.745476, 0.66653246, 0.8915572, 0, 0)
+light_energy = 0.525
+shadow_enabled = true
+
+[node name="Anomaly" type="CharacterBody3D" parent="." unique_id=1520276588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8551373, 1.322814, -1.106006)
+
+[node name="Sprite3D" type="Sprite3D" parent="Anomaly" unique_id=2138064870]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+texture = ExtResource("4_6nuej")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Anomaly" unique_id=1816961333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014519095, -0.008911133, 0)
+shape = SubResource("CapsuleShape3D_i7pll")
