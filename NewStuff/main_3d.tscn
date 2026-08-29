@@ -53,8 +53,8 @@ copy_mode = 2
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer2" unique_id=2079718504]
 material = SubResource("ShaderMaterial_vocbd")
-offset_right = 601.0
-offset_bottom = 633.0
+offset_right = 1152.0
+offset_bottom = 649.0
 
 [node name="env" type="Node3D" parent="." unique_id=1282242378]
 
