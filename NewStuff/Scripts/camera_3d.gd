@@ -67,5 +67,5 @@ func shoot_ray():
 	ray_query.to = to
 	var raycast_result = space.intersect_ray(ray_query)
 	var collider = raycast_result.get("collider")
-	if collider is Anomaly:
+	if (collider is Anomaly) and (zoomed):
 		collider.shot()

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://p34arus5tam7"]
 
 [ext_resource type="Script" uid="uid://kxwv3obkb3hq" path="res://NewStuff/Scripts/anomaly.gd" id="1_5lacw"]
-[ext_resource type="Texture2D" uid="uid://bxrhijk8chxdv" path="res://assets/1lexi.png" id="2_x65mu"]
-[ext_resource type="Texture2D" uid="uid://1rx522kwusm2" path="res://assets/2lexi.png" id="3_h4ls5"]
-[ext_resource type="Texture2D" uid="uid://b4e3rfgq0r5bg" path="res://assets/3lexi.png" id="4_vpp43"]
+[ext_resource type="Texture2D" uid="uid://bxrhijk8chxdv" path="res://assets/music/1lexi.png" id="2_x65mu"]
+[ext_resource type="Texture2D" uid="uid://1rx522kwusm2" path="res://assets/music/2lexi.png" id="3_h4ls5"]
+[ext_resource type="Texture2D" uid="uid://b4e3rfgq0r5bg" path="res://assets/music/3lexi.png" id="4_vpp43"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h4ls5"]
 radius = 0.26513672
