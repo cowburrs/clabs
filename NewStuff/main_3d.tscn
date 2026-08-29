@@ -7,6 +7,9 @@
 [ext_resource type="Shader" uid="uid://cpltn58ep6mya" path="res://NewStuff/shaders/main_3d.gdshader" id="5_727o5"]
 [ext_resource type="Shader" uid="uid://bxfwsncxmpbl7" path="res://NewStuff/shaders/fisheye.gdshader" id="5_ehr50"]
 [ext_resource type="PackedScene" uid="uid://cby453nt6ia0g" path="res://pausemenu/pause_menu.tscn" id="7_at48w"]
+[ext_resource type="AudioStream" uid="uid://cm3v3hqbtr248" path="res://assets/sfx/anime girl scream.wav" id="8_kpyn7"]
+[ext_resource type="AudioStream" uid="uid://dg34rs6ivijrc" path="res://assets/sfx/snipershotsfx.wav" id="9_5ha87"]
+[ext_resource type="AudioStream" uid="uid://c1cy4bt26u28d" path="res://assets/sfx/zoomin.wav" id="10_w2b37"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xvo5f"]
 shader = ExtResource("5_727o5")
@@ -93,3 +96,14 @@ transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1580337000]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=760612017 instance=ExtResource("7_at48w")]
+
+[node name="dead" type="AudioStreamPlayer" parent="." unique_id=513044348]
+stream = ExtResource("8_kpyn7")
+volume_db = -20.0
+
+[node name="snipershot" type="AudioStreamPlayer" parent="." unique_id=1678975363]
+stream = ExtResource("9_5ha87")
+volume_db = -10.0
+
+[node name="zoom" type="AudioStreamPlayer" parent="." unique_id=801172326]
+stream = ExtResource("10_w2b37")

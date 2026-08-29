@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cdg01fbn4hj5g" path="res://pausemenu/pause_menu.gd" id="1_1tpqn"]
 [ext_resource type="Shader" uid="uid://d2ld3o3lw0afu" path="res://new_shader.gdshader" id="2_h6grq"]
 [ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="3_h6grq"]
+[ext_resource type="AudioStream" uid="uid://bpsuevsefxrhy" path="res://assets/sfx/hover.buttonpress.mp3" id="4_2xl05"]
+[ext_resource type="AudioStream" uid="uid://d01b6gevjswfr" path="res://assets/sfx/buttonpress.wav" id="5_kvnb2"]
 
 [sub_resource type="Animation" id="Animation_dfhtu"]
 length = 0.001
@@ -259,6 +261,13 @@ theme_override_font_sizes/font_size = 20
 text = "QUIT"
 flat = true
 
+[node name="hover" type="AudioStreamPlayer" parent="PanelContainer/VBoxContainer" unique_id=1621087732]
+stream = ExtResource("4_2xl05")
+volume_db = -15.0
+
+[node name="click" type="AudioStreamPlayer" parent="PanelContainer/VBoxContainer" unique_id=1632936858]
+stream = ExtResource("5_kvnb2")
+
 [node name="options panel" type="Panel" parent="." unique_id=1061709606]
 custom_minimum_size = Vector2(0.47, 0)
 layout_mode = 1
@@ -326,7 +335,11 @@ theme_override_font_sizes/font_size = 21
 text = "MASTER AUDIO"
 horizontal_alignment = 1
 
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="options panel/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="options panel/back" to="." method="_on_back_pressed"]

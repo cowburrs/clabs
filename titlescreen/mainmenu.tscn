@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c2ojx8jh225nk" path="res://titlescreen/mainmenu.gd" id="1_hgyh7"]
 [ext_resource type="PackedScene" uid="uid://dlr6fmm0i8fmw" path="res://NewStuff/main_3d.tscn" id="2_5ylpp"]
 [ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="2_ppcxt"]
+[ext_resource type="AudioStream" uid="uid://d01b6gevjswfr" path="res://assets/sfx/buttonpress.wav" id="4_1p1ti"]
+[ext_resource type="AudioStream" uid="uid://bpsuevsefxrhy" path="res://assets/sfx/hover.buttonpress.mp3" id="5_sc8e1"]
 
 [sub_resource type="FontVariation" id="FontVariation_cc0m2"]
 base_font = ExtResource("2_ppcxt")
@@ -143,8 +145,19 @@ theme_override_font_sizes/font_size = 21
 text = "MASTER AUDIO"
 horizontal_alignment = 1
 
+[node name="press" type="AudioStreamPlayer" parent="." unique_id=899254377]
+stream = ExtResource("4_1p1ti")
+
+[node name="hover" type="AudioStreamPlayer" parent="." unique_id=1709248187]
+stream = ExtResource("5_sc8e1")
+volume_db = -20.0
+
+[connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/new game" to="." method="_on_new_game_mouse_entered"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/new game" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/optiosn" to="." method="_on_optiosn_mouse_entered"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/optiosn" to="." method="_on_optiosn_pressed"]
+[connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="options panel/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="options panel/back" to="." method="_on_back_pressed"]

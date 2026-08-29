@@ -12,21 +12,37 @@ func _ready():
 
 func _on_new_game_pressed() -> void:
 	get_tree().change_scene_to_packed(TEST)
-	pass # Replace with function body.
+	$press.play()
 
 
 func _on_optiosn_pressed() -> void:
 	main_menu.visible = false
 	options_panel.visible = true
-	pass # Replace with function body.
+	$press.play()
 
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-	pass # Replace with function body.
+	$press.play()
 
 
 func _on_back_pressed() -> void:
 	main_menu.visible = true
 	options_panel.visible = false
-	pass # Replace with function body.
+	$press.play()
+
+
+func _on_new_game_mouse_entered() -> void:
+	$hover.play()
+
+
+func _on_optiosn_mouse_entered() -> void:
+	$hover.play()
+
+
+func _on_quit_mouse_entered() -> void:
+	$hover.play()
+
+
+func _on_back_mouse_entered() -> void:
+	$hover.play()

@@ -20,9 +20,11 @@ func testEsc():
 			pause()
 
 func _on_resume_pressed() -> void:
+	$PanelContainer/VBoxContainer/click.play()
 	resume()
 
 func _on_quit_pressed() -> void:
+	$PanelContainer/VBoxContainer/click.play()
 	get_tree().quit()
 	
 func _process(delta):
@@ -33,8 +35,28 @@ func _ready():
 
 
 func _on_settings_pressed() -> void:
+	$PanelContainer/VBoxContainer/click.play()
 	options_panel.visible = true
 
 
 func _on_back_pressed() -> void:
+	$PanelContainer/VBoxContainer/click.play()
 	options_panel.visible = false
+
+
+func _on_resume_mouse_entered() -> void:
+	$PanelContainer/VBoxContainer/hover.play()
+
+
+
+func _on_settings_mouse_entered() -> void:
+	$PanelContainer/VBoxContainer/hover.play()
+	
+
+
+func _on_back_mouse_entered() -> void:
+	$PanelContainer/VBoxContainer/hover.play()
+
+
+func _on_quit_mouse_entered() -> void:
+	$PanelContainer/VBoxContainer/hover.play()

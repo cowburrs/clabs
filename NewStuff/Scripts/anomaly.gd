@@ -43,6 +43,7 @@ func add_red_spots(tex: Texture2D) -> Texture2D:
 
 
 func shot() -> void:
+	$"../dead".play()
 	print("shot")
 	var sprite_3d = $Sprite3D
 	sprite_3d.texture = image_blood

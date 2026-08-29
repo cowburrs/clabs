@@ -40,9 +40,11 @@ func _input(event):
 	#if event is InputEventMouseMotion:
 	#translate(Vector3(event.relative.x * speed, 0, 0))
 	if event.is_action_pressed("right_click") and zoomed == false:
+		$"../../../zoom".play()
 		zoomed = !zoomed
 		AnimPlayer.play("Zoom")
 	elif event.is_action_pressed("right_click") and zoomed == true:
+		$"../../../zoom".play()
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		zoomed = !zoomed
 		AnimPlayer.play_backwards("Zoom")
@@ -52,6 +54,7 @@ func _input(event):
 		real_position += Vector2(event.relative.x * speed, -event.relative.y * speed)
 
 	if event.is_action_pressed("left_click"):
+		$"../../../snipershot".play()
 		shoot_ray()
 	pass
 
