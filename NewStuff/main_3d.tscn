@@ -100,10 +100,13 @@ transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397
 [node name="dead" type="AudioStreamPlayer" parent="." unique_id=513044348]
 stream = ExtResource("8_kpyn7")
 volume_db = -20.0
+bus = &"SFX"
 
 [node name="snipershot" type="AudioStreamPlayer" parent="." unique_id=1678975363]
 stream = ExtResource("9_5ha87")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="zoom" type="AudioStreamPlayer" parent="." unique_id=801172326]
 stream = ExtResource("10_w2b37")
+bus = &"SFX"

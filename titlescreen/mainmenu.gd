@@ -9,6 +9,9 @@ var TEST: PackedScene
 func _ready():
 	main_menu.visible = true
 	options_panel.visible = false
+	$mainmenumusic.play
+	$"options panel/audio slider".value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	$"options panel/bgm".value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("music")))
 
 func _on_new_game_pressed() -> void:
 	get_tree().change_scene_to_packed(TEST)
@@ -46,3 +49,11 @@ func _on_quit_mouse_entered() -> void:
 
 func _on_back_mouse_entered() -> void:
 	$hover.play()
+
+
+func _on_audio_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+
+
+func _on_bgm_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(value))

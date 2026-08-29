@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="3_h6grq"]
 [ext_resource type="AudioStream" uid="uid://bpsuevsefxrhy" path="res://assets/sfx/hover.buttonpress.mp3" id="4_2xl05"]
 [ext_resource type="AudioStream" uid="uid://d01b6gevjswfr" path="res://assets/sfx/buttonpress.wav" id="5_kvnb2"]
+[ext_resource type="AudioStream" uid="uid://cb021hjcllnn5" path="res://assets/art/MEANBEAT.mp3" id="6_kvnb2"]
 
 [sub_resource type="Animation" id="Animation_dfhtu"]
 length = 0.001
@@ -263,11 +264,14 @@ text = "QUIT"
 flat = true
 
 [node name="hover" type="AudioStreamPlayer" parent="PanelContainer/VBoxContainer" unique_id=1621087732]
+process_mode = 3
 stream = ExtResource("4_2xl05")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="click" type="AudioStreamPlayer" parent="PanelContainer/VBoxContainer" unique_id=1632936858]
 stream = ExtResource("5_kvnb2")
+bus = &"SFX"
 
 [node name="options panel" type="Panel" parent="." unique_id=1061709606]
 custom_minimum_size = Vector2(0.47, 0)
@@ -303,25 +307,27 @@ offset_right = 101.0
 offset_bottom = 467.0
 text = "BACK"
 
-[node name="audio slider" type="HSlider" parent="options panel" unique_id=759027510]
+[node name="sfx volume" type="HSlider" parent="options panel" unique_id=1136491531]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -161.0
-offset_right = 197.0
-offset_bottom = -118.0
+offset_left = -193.0
+offset_top = -158.0
+offset_right = 194.0
+offset_bottom = -115.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_2xl05")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_kvnb2")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_kvnb2")
-value = 50.0
+max_value = 1.5
+step = 0.001
+value = 1.0
 
-[node name="Label" type="Label" parent="options panel/audio slider" unique_id=359849684]
+[node name="sfx volume" type="Label" parent="options panel/sfx volume" unique_id=1529250204]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -333,8 +339,52 @@ offset_bottom = 6.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("FontVariation_xl07e")
 theme_override_font_sizes/font_size = 21
-text = "MASTER AUDIO"
+text = "SFX VOLUME"
 horizontal_alignment = 1
+
+[node name="music volume" type="HSlider" parent="options panel" unique_id=1258979361]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -73.0
+offset_right = 199.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_2xl05")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_kvnb2")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_kvnb2")
+max_value = 1.5
+step = 0.001
+value = 1.0
+
+[node name="sfx volume" type="Label" parent="options panel/music volume" unique_id=2077738099]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_top = -32.0
+offset_right = 185.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_xl07e")
+theme_override_font_sizes/font_size = 21
+text = "MUSIC VOLUME
+"
+horizontal_alignment = 1
+
+[node name="bgm" type="AudioStreamPlayer" parent="." unique_id=1957882695]
+process_mode = 3
+stream = ExtResource("6_kvnb2")
+volume_db = -5.0
+autoplay = true
+bus = &"music"
+parameters/looping = true
 
 [connection signal="mouse_entered" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
@@ -344,3 +394,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="options panel/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="options panel/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="options panel/sfx volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="options panel/music volume" to="." method="_on_music_volume_value_changed"]

@@ -6,11 +6,17 @@ func resume():
 	get_tree() .paused = false
 	$transition.play_backwards("blur")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var bus = AudioServer.get_bus_index("music")
+	var effectvalue = 0
+	AudioServer.set_bus_effect_enabled(bus, effectvalue, false)
 
 func pause():
 	get_tree() .paused = true
 	$transition.play("blur")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	var bus = AudioServer.get_bus_index("music")
+	var effectvalue = 0
+	AudioServer.set_bus_effect_enabled(bus, effectvalue, true)
 
 func testEsc():
 	if Input.is_action_just_pressed("esc"):
@@ -32,6 +38,9 @@ func _process(delta):
 	
 func _ready():
 	options_panel.visible = false
+	$"options panel/sfx volume".value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("music")))
+	$"options panel/music volume".value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	
 
 
 func _on_settings_pressed() -> void:
@@ -60,3 +69,9 @@ func _on_back_mouse_entered() -> void:
 
 func _on_quit_mouse_entered() -> void:
 	$PanelContainer/VBoxContainer/hover.play()
+
+func _on_music_volume_value_changed(value:float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(value))
+
+func _on_sfx_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))

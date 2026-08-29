@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="2_ppcxt"]
 [ext_resource type="AudioStream" uid="uid://d01b6gevjswfr" path="res://assets/sfx/buttonpress.wav" id="4_1p1ti"]
 [ext_resource type="AudioStream" uid="uid://bpsuevsefxrhy" path="res://assets/sfx/hover.buttonpress.mp3" id="5_sc8e1"]
+[ext_resource type="AudioStream" uid="uid://dwjqhfllimtxq" path="res://assets/music/brackey1.mp3" id="6_sc8e1"]
 
 [sub_resource type="FontVariation" id="FontVariation_cc0m2"]
 base_font = ExtResource("2_ppcxt")
@@ -128,7 +129,9 @@ grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_m2va7")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_bhnsc")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bhnsc")
-value = 50.0
+max_value = 1.5
+step = 0.001
+value = 1.0
 
 [node name="Label" type="Label" parent="options panel/audio slider" unique_id=1985728871]
 layout_mode = 1
@@ -138,19 +141,62 @@ anchor_right = 0.5
 offset_left = -186.5
 offset_top = -17.0
 offset_right = 183.5
-offset_bottom = 6.0
+offset_bottom = 12.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("FontVariation_m2va7")
 theme_override_font_sizes/font_size = 21
-text = "MASTER AUDIO"
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="bgm" type="HSlider" parent="options panel" unique_id=1789023139]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -97.0
+offset_right = 200.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_m2va7")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bhnsc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bhnsc")
+max_value = 1.5
+step = 0.001
+value = 1.5
+
+[node name="Label" type="Label" parent="options panel/bgm" unique_id=575289661]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.5
+offset_top = -17.0
+offset_right = 183.5
+offset_bottom = 12.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_m2va7")
+theme_override_font_sizes/font_size = 21
+text = "BGM"
 horizontal_alignment = 1
 
 [node name="press" type="AudioStreamPlayer" parent="." unique_id=899254377]
 stream = ExtResource("4_1p1ti")
+bus = &"SFX"
 
 [node name="hover" type="AudioStreamPlayer" parent="." unique_id=1709248187]
 stream = ExtResource("5_sc8e1")
 volume_db = -20.0
+bus = &"SFX"
+
+[node name="mainmenumusic" type="AudioStreamPlayer" parent="." unique_id=2014193560]
+stream = ExtResource("6_sc8e1")
+autoplay = true
+bus = &"music"
+parameters/looping = true
 
 [connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/new game" to="." method="_on_new_game_mouse_entered"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/new game" to="." method="_on_new_game_pressed"]
@@ -161,3 +207,5 @@ volume_db = -20.0
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="options panel/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="options panel/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="options panel/audio slider" to="." method="_on_audio_slider_value_changed"]
+[connection signal="value_changed" from="options panel/bgm" to="." method="_on_bgm_value_changed"]
