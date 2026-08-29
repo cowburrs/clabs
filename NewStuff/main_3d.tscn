@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p34arus5tam7" path="res://NewStuff/Anomaly.tscn" id="4_727o5"]
 [ext_resource type="Shader" uid="uid://cpltn58ep6mya" path="res://NewStuff/shaders/main_3d.gdshader" id="5_727o5"]
 [ext_resource type="Shader" uid="uid://bxfwsncxmpbl7" path="res://NewStuff/shaders/fisheye.gdshader" id="5_ehr50"]
+[ext_resource type="PackedScene" uid="uid://cby453nt6ia0g" path="res://pausemenu/pause_menu.tscn" id="7_at48w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xvo5f"]
 shader = ExtResource("5_727o5")
@@ -88,3 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.220242, 1.321249, -3.410815
 
 [node name="Anomaly5" parent="." unique_id=491853078 instance=ExtResource("4_727o5")]
 transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, 8.035755, 4.132395, -2.6365495)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1580337000]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=760612017 instance=ExtResource("7_at48w")]
