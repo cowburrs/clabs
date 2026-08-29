@@ -4,7 +4,7 @@ extends Camera3D
 
 var zoomed = false
 const speed = 0.01
-const default_size = 15
+const default_size = 20
 const default_size_zoomed = 5
 var real_position: Vector2
 
@@ -13,7 +13,7 @@ var real_position: Vector2
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	size = default_size
+	fov = default_size
 	real_position = Vector2(position.x, position.y)
 	pass # Replace with function body.
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 func zoommove(spd: int, csize: int, delta: float) -> void:
 	var x = real_position.x - position.x
 	var y = real_position.y - position.y
-	size += (csize - size) * delta * spd
+	fov += (csize - fov) * delta * spd
 	position += Vector3(x, y, 0) * delta * spd
 	real_position.x = clamp(real_position.x, -12, 12)
 	real_position.y = clamp(real_position.y, -4, 10)

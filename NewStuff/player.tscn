@@ -60,8 +60,6 @@ shape = SubResource("CapsuleShape3D_i7pll")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=1213843922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5930023, 0.01761198)
-projection = 1
-fov = 70.0
 size = 30.0
 script = ExtResource("2_k1fhx")
 

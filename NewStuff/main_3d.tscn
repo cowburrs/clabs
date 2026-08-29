@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxrulsjgqg5da" path="res://NewStuff/player.tscn" id="2_5o84p"]
 [ext_resource type="PackedScene" uid="uid://p34arus5tam7" path="res://NewStuff/Anomaly.tscn" id="4_727o5"]
 [ext_resource type="Shader" uid="uid://cpltn58ep6mya" path="res://NewStuff/shaders/main_3d.gdshader" id="5_727o5"]
+[ext_resource type="Shader" uid="uid://bxfwsncxmpbl7" path="res://NewStuff/shaders/fisheye.gdshader" id="5_ehr50"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xvo5f"]
 shader = ExtResource("5_727o5")
@@ -12,6 +13,10 @@ shader_parameter/enabled = true
 shader_parameter/dithering = true
 shader_parameter/colors = 12
 shader_parameter/dither_size = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vocbd"]
+shader = ExtResource("5_ehr50")
+shader_parameter/effect_amount = 1.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr3ro"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,6 +47,14 @@ offset_left = 3.0
 offset_top = 6.0
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer2" unique_id=762669418]
+copy_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2" unique_id=2079718504]
+material = SubResource("ShaderMaterial_vocbd")
+offset_right = 601.0
+offset_bottom = 633.0
 
 [node name="env" type="Node3D" parent="." unique_id=1282242378]
 
