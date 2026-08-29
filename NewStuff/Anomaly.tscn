@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://p34arus5tam7"]
+
+[ext_resource type="Script" uid="uid://kxwv3obkb3hq" path="res://NewStuff/Scripts/anomaly.gd" id="1_5lacw"]
+[ext_resource type="Texture2D" uid="uid://bxrhijk8chxdv" path="res://assets/1lexi.png" id="2_x65mu"]
+[ext_resource type="Texture2D" uid="uid://1rx522kwusm2" path="res://assets/2lexi.png" id="3_h4ls5"]
+[ext_resource type="Texture2D" uid="uid://b4e3rfgq0r5bg" path="res://assets/3lexi.png" id="4_vpp43"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h4ls5"]
+radius = 0.26513672
+height = 1.0168457
+
+[node name="Anomaly" type="CharacterBody3D" unique_id=1730844926]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5lacw")
+girls = Array[CompressedTexture2D]([ExtResource("2_x65mu"), ExtResource("3_h4ls5"), ExtResource("4_vpp43")])
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1326236032]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+texture = ExtResource("2_x65mu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1090629602]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_h4ls5")

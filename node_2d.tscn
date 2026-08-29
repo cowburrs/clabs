@@ -1,8 +1,5 @@
 [gd_scene format=3 uid="uid://dwql252xd8dfw"]
 
-[ext_resource type="Texture2D" uid="uid://dji6rvlnoyvtw" path="res://hololive-dreams_photo_20260731-183256.png" id="1_wtcfe"]
-
 [node name="HololiveDreamsPhoto20260731183256" type="Sprite2D" unique_id=1991387049]
 position = Vector2(615.00006, 325.99994)
 scale = Vector2(0.6098958, 0.6564815)
-texture = ExtResource("1_wtcfe")

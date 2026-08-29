@@ -45,7 +45,7 @@ _data = {
 &"Zoom": SubResource("Animation_02rln")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1054110579]
+[node name="Player" type="CharacterBody3D" unique_id=1054110579]
 script = ExtResource("1_bkknw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=528002626]
