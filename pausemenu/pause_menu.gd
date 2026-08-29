@@ -21,15 +21,12 @@ func testEsc():
 
 func _on_resume_pressed() -> void:
 	resume()
-	pass # Replace with function body.
-
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 	
 func _process(delta):
 	testEsc()
-	pass # Replace with function body.
 	
 func _ready():
 	options_panel.visible = false
@@ -37,9 +34,7 @@ func _ready():
 
 func _on_settings_pressed() -> void:
 	options_panel.visible = true
-	pass # Replace with function body.
 
 
 func _on_back_pressed() -> void:
 	options_panel.visible = false
-	pass # Replace with function body.
