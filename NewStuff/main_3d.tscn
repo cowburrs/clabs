@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cxrulsjgqg5da" path="res://NewStuff/player.tscn" id="2_5o84p"]
 [ext_resource type="PackedScene" uid="uid://p34arus5tam7" path="res://NewStuff/Anomaly.tscn" id="4_727o5"]
 [ext_resource type="Shader" uid="uid://cpltn58ep6mya" path="res://NewStuff/shaders/main_3d.gdshader" id="5_727o5"]
-[ext_resource type="Shader" uid="uid://bk4odlyq1qg41" path="res://NewStuff/shaders/pixelate.gdshader" id="6_ehr50"]
-[ext_resource type="Script" uid="uid://8o815tmvlyjp" path="res://NewStuff/camera_3d.gd" id="7_at48w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xvo5f"]
 shader = ExtResource("5_727o5")
@@ -14,10 +12,6 @@ shader_parameter/enabled = true
 shader_parameter/dithering = true
 shader_parameter/colors = 12
 shader_parameter/dither_size = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vocbd"]
-shader = ExtResource("6_ehr50")
-shader_parameter/block_size = 8.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr3ro"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,10 +25,6 @@ background_mode = 2
 sky = SubResource("Sky_5o84p")
 glow_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6r4eq"]
-shader = ExtResource("6_ehr50")
-shader_parameter/block_size = 8.0
-
 [node name="Main3D" type="Node3D" unique_id=1965742130]
 script = ExtResource("1_5o84p")
 
@@ -47,26 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8942204, 64.5632)
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=458629303]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1956168407]
-visible = false
 material = SubResource("ShaderMaterial_xvo5f")
 offset_left = 3.0
 offset_top = 6.0
 offset_right = 1152.0
 offset_bottom = 648.0
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer2" unique_id=1118769043]
-visible = false
-position = Vector2(3, 6)
-copy_mode = 2
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2" unique_id=617011436]
-visible = false
-material = SubResource("ShaderMaterial_vocbd")
-offset_left = 528.0
-offset_top = 119.0
-offset_right = 1172.0
-offset_bottom = 629.0
-offset_transform_scale = Vector2(2, 2)
 
 [node name="env" type="Node3D" parent="." unique_id=1282242378]
 
@@ -80,46 +55,23 @@ shadow_enabled = true
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=2129281294]
 
-[node name="AnomalyEffect" type="CanvasLayer" parent="." unique_id=79901746]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="AnomalyEffect" unique_id=1601348279]
-visible = false
-visibility_layer = 2
-material = SubResource("ShaderMaterial_6r4eq")
-anchors_preset = -1
-anchor_bottom = 0.035
-offset_left = 356.0
-offset_top = 165.0
-offset_right = 396.0
-offset_bottom = 182.32
-
-[node name="SubViewport" type="SubViewport" parent="AnomalyEffect/SubViewportContainer" unique_id=180274394]
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 0
-
-[node name="Anomaly3" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=1730844926 instance=ExtResource("4_727o5")]
+[node name="Anomaly3" parent="." unique_id=1730844926 instance=ExtResource("4_727o5")]
 transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, 4.831378, 7.4618235, -1.7838461)
 
-[node name="Anomaly2" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=341412302 instance=ExtResource("4_727o5")]
+[node name="Anomaly2" parent="." unique_id=341412302 instance=ExtResource("4_727o5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0335336, 1.2670093, -2.5581114)
 
-[node name="Anomaly6" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=1584681972 instance=ExtResource("4_727o5")]
+[node name="Anomaly6" parent="." unique_id=1584681972 instance=ExtResource("4_727o5")]
 transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, -4.949459, 4.444024, -0.931142)
 
-[node name="Anomaly4" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=1255750009 instance=ExtResource("4_727o5")]
+[node name="Anomaly4" parent="." unique_id=1255750009 instance=ExtResource("4_727o5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.396858, 1.0692782, -1.7054076)
 
-[node name="Anomaly" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=10004412 instance=ExtResource("4_727o5")]
+[node name="Anomaly" parent="." unique_id=10004412 instance=ExtResource("4_727o5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6452556, 1.1525756, -0.85270387)
 
-[node name="Anomaly7" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=2023741443 instance=ExtResource("4_727o5")]
+[node name="Anomaly7" parent="." unique_id=2023741443 instance=ExtResource("4_727o5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.220242, 1.321249, -3.4108157)
 
-[node name="Anomaly5" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=491853078 instance=ExtResource("4_727o5")]
+[node name="Anomaly5" parent="." unique_id=491853078 instance=ExtResource("4_727o5")]
 transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, 8.035755, 4.132395, -2.6365495)
-
-[node name="Camera3D" type="Camera3D" parent="AnomalyEffect/SubViewportContainer/SubViewport" unique_id=124204934 node_paths=PackedStringArray("cb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.583712)
-script = ExtResource("7_at48w")
-cb = NodePath("../../../../CharacterBody3D")
