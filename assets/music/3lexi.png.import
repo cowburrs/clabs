@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4e3rfgq0r5bg"
-path="res://.godot/imported/3lexi.png-a37e05344cc9ef76eb33270cfd7a529f.ctex"
+path="res://.godot/imported/3lexi.png-95f0404094be7066741c84cb20d15b4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/3lexi.png"
-dest_files=["res://.godot/imported/3lexi.png-a37e05344cc9ef76eb33270cfd7a529f.ctex"]
+source_file="res://assets/music/3lexi.png"
+dest_files=["res://.godot/imported/3lexi.png-95f0404094be7066741c84cb20d15b4f.ctex"]
 
 [params]
 
