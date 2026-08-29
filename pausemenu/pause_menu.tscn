@@ -211,6 +211,7 @@ script = ExtResource("1_1tpqn")
 [node name="transition" type="AnimationPlayer" parent="." unique_id=499763425]
 process_mode = 3
 libraries/ = SubResource("AnimationLibrary_kvnb2")
+speed_scale = 3.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=636052157]
 process_mode = 3
