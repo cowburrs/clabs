@@ -9,13 +9,26 @@ base_font = ExtResource("2_ppcxt")
 spacing_glyph = -4
 spacing_space = 2
 
-[sub_resource type="FontVariation" id="FontVariation_v17wp"]
-base_font = ExtResource("2_ppcxt")
-spacing_glyph = -4
-
 [sub_resource type="FontVariation" id="FontVariation_5esrq"]
 base_font = ExtResource("2_ppcxt")
 spacing_glyph = -5
+
+[sub_resource type="FontVariation" id="FontVariation_t2dwb"]
+base_font = ExtResource("2_ppcxt")
+spacing_glyph = -4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m2va7"]
+color = Color(0.6425827, 0, 0.09946006, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bhnsc"]
+color = Color(0.32461536, 0.27918965, 0.9822913, 1)
+thickness = 3
+
+[sub_resource type="FontVariation" id="FontVariation_m2va7"]
+base_font = ExtResource("2_ppcxt")
+spacing_glyph = -4
+spacing_space = 3
 
 [node name="mainmenu" type="MarginContainer" unique_id=1968831127]
 anchors_preset = 15
@@ -30,50 +43,108 @@ theme_override_constants/margin_bottom = 80
 script = ExtResource("1_hgyh7")
 TEST = ExtResource("2_5ylpp")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=542475907]
+[node name="main menu" type="HBoxContainer" parent="." unique_id=542475907]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=780207937]
+[node name="VBoxContainer" type="VBoxContainer" parent="main menu" unique_id=780207937]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=410451738]
+[node name="Label" type="Label" parent="main menu/VBoxContainer" unique_id=410451738]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "CLABS LOGO"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=422888132]
+[node name="Main buttons" type="VBoxContainer" parent="main menu/VBoxContainer" unique_id=422888132]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/separation = 30
 
-[node name="new game" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1083237027]
+[node name="new game" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=1083237027]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_cc0m2")
 theme_override_font_sizes/font_size = 22
 text = "NEW GAME"
 flat = true
 
-[node name="MenuButton" type="MenuButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1190744388]
+[node name="optiosn" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=1538962542]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_v17wp")
+theme_override_fonts/font = SubResource("FontVariation_cc0m2")
 theme_override_font_sizes/font_size = 22
-text = "CONFIG"
+text = "OPTIONS"
+flat = true
 
-[node name="quit" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1402570105]
+[node name="quit" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=1402570105]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_5esrq")
 theme_override_font_sizes/font_size = 22
 text = "QUIT"
 flat = true
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=1943861626]
+[node name="CenterContainer" type="CenterContainer" parent="main menu" unique_id=1943861626]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/CenterContainer" unique_id=1198721020]
+[node name="Label" type="Label" parent="main menu/CenterContainer" unique_id=1198721020]
 layout_mode = 2
 text = "CLABS TEXTUREREC ILLUSTRATION"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/new game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/quit" to="." method="_on_button_pressed"]
+[node name="options panel" type="Panel" parent="." unique_id=1948349460]
+layout_mode = 2
+
+[node name="options" type="Label" parent="options panel" unique_id=1622012864]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_t2dwb")
+theme_override_font_sizes/font_size = 31
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="options panel" unique_id=1562521986]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 436.0
+offset_right = 101.0
+offset_bottom = 467.0
+text = "BACK"
+
+[node name="audio slider" type="HSlider" parent="options panel" unique_id=201735826]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -161.0
+offset_right = 197.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_m2va7")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bhnsc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bhnsc")
+value = 50.0
+
+[node name="Label" type="Label" parent="options panel/audio slider" unique_id=1985728871]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.5
+offset_top = -17.0
+offset_right = 183.5
+offset_bottom = 6.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_m2va7")
+theme_override_font_sizes/font_size = 21
+text = "MASTER AUDIO"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="main menu/VBoxContainer/Main buttons/new game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="main menu/VBoxContainer/Main buttons/optiosn" to="." method="_on_optiosn_pressed"]
+[connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="options panel/back" to="." method="_on_back_pressed"]
