@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cjdijr6ax478e" path="res://assets/music/menu/mainmenu_girl.png" id="4_nc6j8"]
 [ext_resource type="Texture2D" uid="uid://jpqu2t24j38i" path="res://assets/music/menu/mainmenu_clabs.png" id="5_jhbtq"]
 [ext_resource type="AudioStream" uid="uid://bpsuevsefxrhy" path="res://assets/sfx/hover.buttonpress.mp3" id="5_sc8e1"]
-[ext_resource type="AudioStream" uid="uid://dwjqhfllimtxq" path="res://assets/music/brackey1.mp3" id="6_sc8e1"]
 [ext_resource type="Texture2D" uid="uid://10fy2fhh1iaw" path="res://assets/music/menu/mainmenu_startbutton.png" id="6_uavu6"]
 [ext_resource type="Texture2D" uid="uid://c1ybyx2846s7o" path="res://assets/music/menu/mainmenu_startbutton_alt.png" id="7_vsgdo"]
 [ext_resource type="Texture2D" uid="uid://nkua4qt6cl55" path="res://assets/music/menu/mainmenu_optionsbutton.png" id="8_sh3jx"]
 [ext_resource type="Texture2D" uid="uid://d4ehqcrs6acao" path="res://assets/music/menu/mainmenu_optionsbutton_alt.png" id="9_07gig"]
 [ext_resource type="Texture2D" uid="uid://bbaq683fbkcdv" path="res://assets/music/menu/mainmenu_quitbutton.png" id="10_2qtx3"]
 [ext_resource type="Texture2D" uid="uid://jf1c7ynpratw" path="res://assets/music/menu/mainmenu_quitbutton_alt.png" id="11_bxac1"]
+[ext_resource type="AudioStream" uid="uid://cwm6ybsb6hcq3" path="res://assets/music/Da Club.mp3" id="15_sh3jx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh3jx"]
 bg_color = Color(0, 0, 0, 0.57254905)
@@ -244,7 +244,8 @@ volume_db = -20.0
 bus = &"SFX"
 
 [node name="mainmenumusic" type="AudioStreamPlayer" parent="." unique_id=2014193560]
-stream = ExtResource("6_sc8e1")
+stream = ExtResource("15_sh3jx")
+volume_db = -10.0
 autoplay = true
 bus = &"music"
 parameters/looping = true
