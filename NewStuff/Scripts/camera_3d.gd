@@ -43,6 +43,7 @@ func end_self(time: float) ->void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(score)
 	time += delta
 	if end == false:
 		end_self(time)

@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 @export var girls: Array[CompressedTexture2D]
 static var killed: int = 0
+var selfkilled: int = 0
 
 func _ready() -> void:
 	var sprite_3d = $Sprite3D
@@ -53,15 +54,18 @@ func add_red_spots(tex: Texture2D) -> Texture2D:
 func shot() -> int:
 	var sprite_3d = $Sprite3D
 	sprite_3d.texture = mosaic_texture(add_red_spots(sprite_3d.texture), 64)
-	killyourself()
-	killed += 1
+	if selfkilled == 0:
+		killyourself()
+	selfkilled += 1
 	var label = get_node("/root/Main3D/CanvasLayer2/kill count")
 	label.text = "%d" % killed
-	return killed
+	return selfkilled
 
 func killyourself() -> void:
 	var sprite_3d = $Sprite3D
+	killed += 1
 	await get_tree().create_timer(2.0).timeout
+	selfkilled = 0
 	sprite_3d.visible = false
 	$CollisionShape3D.disabled = true
 
