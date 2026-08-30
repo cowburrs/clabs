@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b8i3l2emmem2k"]
 
-[ext_resource type="ArrayMesh" uid="uid://dwisdjpm7p0l4" path="res://assets/3d/mainbuilding.obj" id="1_uii2f"]
+[ext_resource type="ArrayMesh" uid="uid://bikw1yqods0k7" path="res://assets/3d/scene_textured_final.obj" id="1_uii2f"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qkxst"]
 _surfaces = [{
@@ -43,4 +43,5 @@ mesh = ExtResource("1_uii2f")
 
 [node name="MainbuildingBlkt1" type="MeshInstance3D" parent="." unique_id=366756931]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 65.46762, 0, -10.598651)
+visible = false
 mesh = SubResource("ArrayMesh_g0wh8")
