@@ -28,7 +28,7 @@ func zoommove(spd: int, csize: int, delta: float) -> void:
 	fov += (csize - fov) * delta * spd
 	position += Vector3(x, y, 0) * delta * spd
 	real_position.x = clamp(real_position.x, -20, 30)
-	real_position.y = clamp(real_position.y, -4, 10)
+	real_position.y = clamp(real_position.y, -2.5, 10)
 
 func end_self(time: float) ->void:
 	if Gamestate.mode == Gamestate.Mode.TIMED:
