@@ -105,6 +105,7 @@ environment = SubResource("Environment_6nuej")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=1984621423]
 transform = Transform3D(1, 0, 0, 0, 0.66653246, 0.745476, 0, -0.745476, 0.66653246, 0.8915572, 0, 0)
 light_energy = 0.525
+light_specular = 0.0
 shadow_enabled = true
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=2129281294]

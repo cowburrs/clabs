@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8i3l2emmem2k"]
 
 [ext_resource type="ArrayMesh" uid="uid://cafciqgau0q32" path="res://assets/3d/separatedmodels/scene_base.obj" id="1_hgnfw"]
+[ext_resource type="Texture2D" uid="uid://d34jjh1xd145c" path="res://assets/3d/separatedmodels/t_gradient_1.png" id="1_wuo71"]
 [ext_resource type="Texture2D" uid="uid://bj8eshs7fofbp" path="res://assets/music/menu/background.png" id="2_g0wh8"]
 [ext_resource type="ArrayMesh" uid="uid://b28y2eu38ovtw" path="res://assets/3d/separatedmodels/scene_bridge.obj" id="2_wuo71"]
 [ext_resource type="ArrayMesh" uid="uid://bednccwilm4tj" path="res://assets/3d/separatedmodels/scene_objects.obj" id="3_htrpl"]
@@ -11,6 +12,12 @@
 [ext_resource type="ArrayMesh" uid="uid://dlnns8skxyhv1" path="res://assets/3d/separatedmodels/scene_building_main_right.obj" id="9_agvo7"]
 [ext_resource type="ArrayMesh" uid="uid://bb7tdplnkevqs" path="res://assets/3d/separatedmodels/scene_building_main_bottom.obj" id="10_ewiq2"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqt2m"]
+albedo_texture = ExtResource("1_wuo71")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kkex"]
+albedo_texture = ExtResource("1_wuo71")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_xvo5f"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g0wh8"]
@@ -20,30 +27,37 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.27857685, 0, -3.0555
 
 [node name="MainbuildingBlkt2" type="MeshInstance3D" parent="." unique_id=753682806]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dqt2m")
 mesh = ExtResource("1_hgnfw")
 
 [node name="MainbuildingBlkt1" type="MeshInstance3D" parent="." unique_id=366756931]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("2_wuo71")
 
 [node name="MainbuildingBlkt3" type="MeshInstance3D" parent="." unique_id=1350961446]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("3_htrpl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1144155260]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("4_a32ee")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1824714874]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("5_eidue")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=371532581]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -1.1920929e-06)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("6_nduvu")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1621341403]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("7_c35fw")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1933829984]
@@ -56,6 +70,7 @@ visible = false
 
 [node name="MultiMeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=115578317]
 transform = Transform3D(20.904993, -1.422364e-07, 0, 0, 2.6846223, 0, 0, 0, 47.06491, -17.684387, -3.502385, 17.464678)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = SubResource("PlaneMesh_xvo5f")
 
 [node name="MultiMeshInstance3D" type="MeshInstance3D" parent="Node3D/MultiMeshInstance3D" unique_id=1440312]
@@ -76,8 +91,10 @@ mesh = SubResource("PlaneMesh_g0wh8")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=399437529]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("9_agvo7")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=699094587]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kkex")
 mesh = ExtResource("10_ewiq2")
