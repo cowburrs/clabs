@@ -109,57 +109,6 @@ shadow_enabled = true
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=2129281294]
 
-[node name="Anomaly10" parent="." unique_id=1468580589 instance=ExtResource("4_727o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.15247, 5.125373, -1.7054077)
-
-[node name="Anomaly9" parent="." unique_id=1911960064 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.000001, 0, 0, 0, 1, 0, 0, 0, 1.0000013, 0.38210583, 7.7043266, -2.5251665)
-
-[node name="Anomaly8" parent="." unique_id=1246685927 instance=ExtResource("4_727o5")]
-transform = Transform3D(0.9839781, 0, -0.17829284, 0, 1, 0, 0.17829281, 0, 0.98397815, -3.9020538, 7.5602293, -1.4349108)
-
-[node name="Anomaly3" parent="." unique_id=1730844926 instance=ExtResource("4_727o5")]
-transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, 4.831378, 7.4618235, -1.7838461)
-
-[node name="Anomaly2" parent="." unique_id=341412302 instance=ExtResource("4_727o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0335336, 1.2670093, -2.5581114)
-
-[node name="Anomaly14" parent="." unique_id=771247115 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000026, 0, 0, 0, 1, 0, 0, 0, 1.0000021, 21.944, 6.9140124, -2.749495)
-
-[node name="Anomaly15" parent="." unique_id=1299297500 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000017, 0, 0, 0, 1, 0, 0, 0, 1.0000013, 22.047113, 9.663649, -3.4174256)
-
-[node name="Anomaly16" parent="." unique_id=2105071358 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000036, 0, 0, 0, 1, 0, 0, 0, 1.000003, 23.874752, 2.9627094, -1.9977082)
-
-[node name="Anomaly17" parent="." unique_id=52699981 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000014, 0, 0, 0, 1, 0, 0, 0, 1.000001, 20.215614, 2.9701004, -2.298486)
-
-[node name="Anomaly12" parent="." unique_id=1906143237 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000007, 0, 0, 0, 1, 0, 0, 0, 1.0000005, 9.92513, 4.2083087, -2.2299006)
-
-[node name="Anomaly11" parent="." unique_id=1249634496 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 4.635704, 4.5547867, -0.2452383)
-
-[node name="Anomaly13" parent="." unique_id=859298411 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000004, 0, 0, 0, 1, 0, 0, 0, 1.0000004, -0.095668316, 4.533997, 0.04096079)
-
-[node name="Anomaly6" parent="." unique_id=1584681972 instance=ExtResource("4_727o5")]
-transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, -4.949459, 4.444024, -0.931142)
-
-[node name="Anomaly4" parent="." unique_id=1255750009 instance=ExtResource("4_727o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.396858, 1.0692782, -1.7054076)
-
-[node name="Anomaly" parent="." unique_id=10004412 instance=ExtResource("4_727o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6452556, 1.1525756, -0.85270387)
-
-[node name="Anomaly7" parent="." unique_id=2023741443 instance=ExtResource("4_727o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.220242, 1.321249, -3.4108157)
-
-[node name="Anomaly5" parent="." unique_id=491853078 instance=ExtResource("4_727o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 8.035755, 4.132395, -2.6365495)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1580337000]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=760612017 instance=ExtResource("7_at48w")]
@@ -177,3 +126,57 @@ bus = &"SFX"
 [node name="zoom" type="AudioStreamPlayer" parent="." unique_id=801172326]
 stream = ExtResource("10_w2b37")
 bus = &"SFX"
+
+[node name="Node3D" type="Node3D" parent="." unique_id=231470540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2618427, 0.1563232, -1.907629)
+
+[node name="Anomaly10" parent="Node3D" unique_id=1468580589 instance=ExtResource("4_727o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.15247, 5.125373, -1.7054077)
+
+[node name="Anomaly9" parent="Node3D" unique_id=1911960064 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.000001, 0, 0, 0, 1, 0, 0, 0, 1.0000013, 0.38210583, 7.7043266, -2.5251665)
+
+[node name="Anomaly8" parent="Node3D" unique_id=1246685927 instance=ExtResource("4_727o5")]
+transform = Transform3D(0.9839781, 0, -0.17829284, 0, 1, 0, 0.17829281, 0, 0.98397815, -3.9020538, 7.5602293, -1.4349108)
+
+[node name="Anomaly3" parent="Node3D" unique_id=1730844926 instance=ExtResource("4_727o5")]
+transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, 4.831378, 7.4618235, -1.7838461)
+
+[node name="Anomaly2" parent="Node3D" unique_id=341412302 instance=ExtResource("4_727o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0335336, 1.2670093, -2.5581114)
+
+[node name="Anomaly14" parent="Node3D" unique_id=771247115 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000026, 0, 0, 0, 1, 0, 0, 0, 1.0000021, 21.944, 6.9140124, -2.749495)
+
+[node name="Anomaly15" parent="Node3D" unique_id=1299297500 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000017, 0, 0, 0, 1, 0, 0, 0, 1.0000013, 22.047113, 9.663649, -3.4174256)
+
+[node name="Anomaly16" parent="Node3D" unique_id=2105071358 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000036, 0, 0, 0, 1, 0, 0, 0, 1.000003, 23.874752, 2.9627094, -1.9977082)
+
+[node name="Anomaly17" parent="Node3D" unique_id=52699981 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000014, 0, 0, 0, 1, 0, 0, 0, 1.000001, 20.215614, 2.9701004, -2.298486)
+
+[node name="Anomaly12" parent="Node3D" unique_id=1906143237 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000007, 0, 0, 0, 1, 0, 0, 0, 1.0000005, 9.92513, 4.2083087, -2.2299006)
+
+[node name="Anomaly11" parent="Node3D" unique_id=1249634496 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 4.635704, 4.5547867, -0.2452383)
+
+[node name="Anomaly13" parent="Node3D" unique_id=859298411 instance=ExtResource("4_727o5")]
+transform = Transform3D(1.0000004, 0, 0, 0, 1, 0, 0, 0, 1.0000004, -0.095668316, 4.533997, 0.04096079)
+
+[node name="Anomaly6" parent="Node3D" unique_id=1584681972 instance=ExtResource("4_727o5")]
+transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, -4.949459, 4.444024, -0.931142)
+
+[node name="Anomaly4" parent="Node3D" unique_id=1255750009 instance=ExtResource("4_727o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.396858, 1.0692782, -1.7054076)
+
+[node name="Anomaly" parent="Node3D" unique_id=10004412 instance=ExtResource("4_727o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6452556, 1.1525756, -0.85270387)
+
+[node name="Anomaly7" parent="Node3D" unique_id=2023741443 instance=ExtResource("4_727o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.220242, 1.321249, -3.4108157)
+
+[node name="Anomaly5" parent="Node3D" unique_id=491853078 instance=ExtResource("4_727o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 8.035755, 4.132395, -2.6365495)
