@@ -9,10 +9,14 @@ const default_size_zoomed = 5
 var real_position: Vector2
 var score = 0
 var time: float = 0
+var end = false
+@export
+var home: PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	fov = default_size
@@ -28,17 +32,22 @@ func zoommove(spd: int, csize: int, delta: float) -> void:
 	real_position.x = clamp(real_position.x, -20, 30)
 	real_position.y = clamp(real_position.y, -4, 10)
 
+func end_self(time: float) ->void:
+	if Gamestate.mode == Gamestate.Mode.TIMED:
+		if time > Gamestate.time_limit:
+			end = true
+			$CanvasLayer/GridContainer/Control2/RichTextLabel.visible = false
+			$CanvasLayer/GridContainer2/Control2/RichTextLabel.text = "score: " + str(score) + " \npress r to restart."
+			$CanvasLayer/GridContainer2/Control2/RichTextLabel.visible = true
+			$transition.play("blur")
+			get_tree().paused = true
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta
-	if Gamestate.mode == Gamestate.Mode.TIMED:
-		if time > Gamestate.time_limit:
-			$CanvasLayer/GridContainer/Control2/RichTextLabel.visible = false
-			$CanvasLayer/GridContainer2/Control2/RichTextLabel.text = "score: " + str(score)
-			$CanvasLayer/GridContainer2/Control2/RichTextLabel.visible = true
-			$transition.play("blur")
-			get_tree().paused = true
+	if end == false:
+		end_self(time)
 	$CanvasLayer/GridContainer/Control2/RichTextLabel.text = str(roundf(time * 100) / 100)
 	if zoomed:
 		zoommove(15, default_size_zoomed, delta)
@@ -60,6 +69,12 @@ func _input(event):
 		zoomed = !zoomed
 		AnimPlayer.play_backwards("Zoom")
 
+	if event.is_action_pressed("restart"):
+		var mat := $ColorRect.material as ShaderMaterial
+		if mat:
+			mat.set_shader_parameter("blur_size", Vector2(0, 0))
+		get_tree().reload_current_scene()
+
 	if event is InputEventMouseMotion == true:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		real_position += Vector2(event.relative.x * speed, -event.relative.y * speed)
@@ -73,10 +88,10 @@ func _input(event):
 
 
 func shoot_ray():
-	var mouse_pos = get_viewport().get_mouse_position()
+	# var mouse_pos = get_viewport().get_mouse_position()
 	var ray_length = 1000
-	var from = project_ray_origin(mouse_pos)
-	var to = from + project_ray_normal(mouse_pos) * ray_length
+	var from = global_transform.origin
+	var to = from - global_transform.basis.z * ray_length
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.new()
 	ray_query.from = from
