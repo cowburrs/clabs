@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://p34arus5tam7" path="res://NewStuff/Anomaly.tscn" id="4_727o5"]
 [ext_resource type="Shader" uid="uid://cpltn58ep6mya" path="res://NewStuff/shaders/main_3d.gdshader" id="5_727o5"]
 [ext_resource type="Shader" uid="uid://bxfwsncxmpbl7" path="res://NewStuff/shaders/fisheye.gdshader" id="5_ehr50"]
+[ext_resource type="Script" uid="uid://b70b13722s7bx" path="res://NewStuff/kill_count.gd" id="6_3s5dg"]
+[ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="6_t0fio"]
 [ext_resource type="PackedScene" uid="uid://cby453nt6ia0g" path="res://pausemenu/pause_menu.tscn" id="7_at48w"]
+[ext_resource type="Texture2D" uid="uid://bgjvsjaq6gou" path="res://assets/music/menu/deadanimegirl.png" id="8_6hci6"]
 [ext_resource type="AudioStream" uid="uid://cm3v3hqbtr248" path="res://assets/sfx/anime girl scream.wav" id="8_kpyn7"]
 [ext_resource type="AudioStream" uid="uid://dg34rs6ivijrc" path="res://assets/sfx/snipershotsfx.wav" id="9_5ha87"]
 [ext_resource type="AudioStream" uid="uid://c1cy4bt26u28d" path="res://assets/sfx/zoomin.wav" id="10_w2b37"]
@@ -21,6 +24,10 @@ shader_parameter/dither_size = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vocbd"]
 shader = ExtResource("5_ehr50")
 shader_parameter/effect_amount = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_t0fio"]
+base_font = ExtResource("6_t0fio")
+spacing_glyph = -4
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr3ro"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -59,6 +66,36 @@ copy_mode = 2
 material = SubResource("ShaderMaterial_vocbd")
 offset_right = 1152.0
 offset_bottom = 649.0
+
+[node name="kill count" type="Label" parent="CanvasLayer2" unique_id=1536827547]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 145.115
+offset_top = -104.859985
+offset_right = 185.115
+offset_bottom = -23.859924
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7882353, 0.22745098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_t0fio")
+theme_override_font_sizes/font_size = 60
+script = ExtResource("6_3s5dg")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1726339248]
+offset_left = 47.0
+offset_top = 509.0
+offset_right = 95.0
+offset_bottom = 549.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 49.105)
+offset_transform_scale = Vector2(3.02, 3.02)
+texture = ExtResource("8_6hci6")
+expand_mode = 3
 
 [node name="env" type="Node3D" parent="." unique_id=1282242378]
 

@@ -2,8 +2,7 @@ class_name Anomaly
 extends CharacterBody3D
 
 @export var girls: Array[CompressedTexture2D]
-var killed: int = 0
-
+static var killed: int = 0
 
 func _ready() -> void:
 	var sprite_3d = $Sprite3D
@@ -56,6 +55,8 @@ func shot() -> int:
 	sprite_3d.texture = mosaic_texture(add_red_spots(sprite_3d.texture), 64)
 	killyourself()
 	killed += 1
+	var label = get_node("/root/Main3D/CanvasLayer2/kill count")
+	label.text = "%d" % killed
 	return killed
 
 func killyourself() -> void:
