@@ -2,16 +2,22 @@ class_name Anomaly
 extends CharacterBody3D
 
 @export var girls: Array[CompressedTexture2D]
-var image_blood: Texture2D
-var image_normal: Texture2D
+var killed: int = 0
 
 
 func _ready() -> void:
 	var sprite_3d = $Sprite3D
 	sprite_3d.texture = girls.pick_random()
-	image_blood = mosaic_texture(add_red_spots($Sprite3D.texture), 64)
-	image_normal = $Sprite3D.texture
 	pass # Replace with function body.
+
+
+func _process(delta: float) -> void:
+	if $CollisionShape3D.disabled == true and randf() < 0.1 * delta:
+		$Sprite3D.texture = girls.pick_random()
+		$Sprite3D.visible = true
+		$CollisionShape3D.disabled = false
+		pass
+	pass
 
 
 func mosaic_texture(tex: Texture2D, pixel_size: int) -> Texture2D:
@@ -34,25 +40,29 @@ func add_red_spots(tex: Texture2D) -> Texture2D:
 	var w: int = img.get_width()
 	var h: int = img.get_height()
 	var red: Color = Color(1, 0, 0, 1)
-	for x in range(1, w):
-		for y in range(1, h):
-			if randf() > 0.5:
+	var factor = 6
+	for x in range(1, w / factor):
+		x = x * factor
+		for y in range(1, h / factor):
+			y = y * factor
+			if randf() > 0.6:
 				if img.get_pixel(x, y).a > 0:
-					img.set_pixel(x, y, red)
+					img.fill_rect(Rect2i(x, y, factor + 2, factor + 2), red) #(x, y, red)
 	return ImageTexture.create_from_image(img)
 
 
-func shot() -> void:
-	$"../dead".play()
-	print("shot")
+func shot() -> int:
 	var sprite_3d = $Sprite3D
-	sprite_3d.texture = image_blood
-	# sprite_3d.visible = false
-	await get_tree().create_timer(2.0).timeout
-	# sprite_3d.texture = girls.pick_random()
-	sprite_3d.visible = true
-	pass
+	sprite_3d.texture = mosaic_texture(add_red_spots(sprite_3d.texture), 64)
+	killyourself()
+	killed += 1
+	return killed
 
+func killyourself() -> void:
+	var sprite_3d = $Sprite3D
+	await get_tree().create_timer(2.0).timeout
+	sprite_3d.visible = false
+	$CollisionShape3D.disabled = true
 
 func get_camera_pos():
 	var camera: Camera3D = get_viewport().get_camera_3d()

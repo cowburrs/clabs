@@ -7,6 +7,7 @@ const speed = 0.01
 const default_size = 20
 const default_size_zoomed = 5
 var real_position: Vector2
+var score = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,12 +24,13 @@ func zoommove(spd: int, csize: int, delta: float) -> void:
 	var y = real_position.y - position.y
 	fov += (csize - fov) * delta * spd
 	position += Vector3(x, y, 0) * delta * spd
-	real_position.x = clamp(real_position.x, -12, 12)
+	real_position.x = clamp(real_position.x, -20, 30)
 	real_position.y = clamp(real_position.y, -4, 10)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(score)
 	if zoomed:
 		zoommove(15, default_size_zoomed, delta)
 	else:
@@ -53,8 +55,10 @@ func _input(event):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		real_position += Vector2(event.relative.x * speed, -event.relative.y * speed)
 
-	if event.is_action_pressed("left_click"):
+	if event.is_action_pressed("left_click") and zoomed:
+		$"../../../snipershot".volume_db = -25
 		$"../../../snipershot".play()
+		# $"../../../snipershot".volume_db = 0
 		shoot_ray()
 	pass
 
@@ -71,4 +75,5 @@ func shoot_ray():
 	var raycast_result = space.intersect_ray(ray_query)
 	var collider = raycast_result.get("collider")
 	if (collider is Anomaly) and (zoomed):
-		collider.shot()
+		$"../../../dead".play() # NOTE: I moved this over here cause it bugs in anomaly..
+		score += 100 / collider.shot()
