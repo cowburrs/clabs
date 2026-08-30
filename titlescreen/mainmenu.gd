@@ -19,7 +19,6 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_optiosn_pressed() -> void:
-	main_menu.visible = false
 	options_panel.visible = true
 	$press.play()
 
@@ -30,7 +29,6 @@ func _on_quit_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
-	main_menu.visible = true
 	options_panel.visible = false
 	$press.play()
 

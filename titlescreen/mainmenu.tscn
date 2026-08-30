@@ -3,20 +3,32 @@
 [ext_resource type="Script" uid="uid://c2ojx8jh225nk" path="res://titlescreen/mainmenu.gd" id="1_hgyh7"]
 [ext_resource type="PackedScene" uid="uid://dlr6fmm0i8fmw" path="res://NewStuff/main_3d.tscn" id="2_5ylpp"]
 [ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="2_ppcxt"]
+[ext_resource type="Texture2D" uid="uid://003m6acudmrf" path="res://assets/music/menu/mainmenu_background.png" id="3_x221g"]
 [ext_resource type="AudioStream" uid="uid://d01b6gevjswfr" path="res://assets/sfx/buttonpress.wav" id="4_1p1ti"]
+[ext_resource type="Texture2D" uid="uid://cjdijr6ax478e" path="res://assets/music/menu/mainmenu_girl.png" id="4_nc6j8"]
+[ext_resource type="Texture2D" uid="uid://jpqu2t24j38i" path="res://assets/music/menu/mainmenu_clabs.png" id="5_jhbtq"]
 [ext_resource type="AudioStream" uid="uid://bpsuevsefxrhy" path="res://assets/sfx/hover.buttonpress.mp3" id="5_sc8e1"]
 [ext_resource type="AudioStream" uid="uid://dwjqhfllimtxq" path="res://assets/music/brackey1.mp3" id="6_sc8e1"]
+[ext_resource type="Texture2D" uid="uid://10fy2fhh1iaw" path="res://assets/music/menu/mainmenu_startbutton.png" id="6_uavu6"]
+[ext_resource type="Texture2D" uid="uid://c1ybyx2846s7o" path="res://assets/music/menu/mainmenu_startbutton_alt.png" id="7_vsgdo"]
+[ext_resource type="Texture2D" uid="uid://nkua4qt6cl55" path="res://assets/music/menu/mainmenu_optionsbutton.png" id="8_sh3jx"]
+[ext_resource type="Texture2D" uid="uid://d4ehqcrs6acao" path="res://assets/music/menu/mainmenu_optionsbutton_alt.png" id="9_07gig"]
+[ext_resource type="Texture2D" uid="uid://bbaq683fbkcdv" path="res://assets/music/menu/mainmenu_quitbutton.png" id="10_2qtx3"]
+[ext_resource type="Texture2D" uid="uid://jf1c7ynpratw" path="res://assets/music/menu/mainmenu_quitbutton_alt.png" id="11_bxac1"]
 
-[sub_resource type="FontVariation" id="FontVariation_cc0m2"]
-base_font = ExtResource("2_ppcxt")
-spacing_glyph = -4
-spacing_space = 2
-
-[sub_resource type="FontVariation" id="FontVariation_5esrq"]
-base_font = ExtResource("2_ppcxt")
-spacing_glyph = -5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh3jx"]
+bg_color = Color(0, 0, 0, 0.57254905)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7882353, 0.22745098, 0, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_t2dwb"]
+base_font = ExtResource("2_ppcxt")
+spacing_glyph = -4
+
+[sub_resource type="FontVariation" id="FontVariation_sh3jx"]
 base_font = ExtResource("2_ppcxt")
 spacing_glyph = -4
 
@@ -49,57 +61,87 @@ TEST = ExtResource("2_5ylpp")
 [node name="main menu" type="HBoxContainer" parent="." unique_id=542475907]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="main menu" unique_id=780207937]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="main menu/VBoxContainer" unique_id=410451738]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "CLABS LOGO"
-
-[node name="Main buttons" type="VBoxContainer" parent="main menu/VBoxContainer" unique_id=422888132]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_constants/separation = 30
-
-[node name="new game" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=1083237027]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_cc0m2")
-theme_override_font_sizes/font_size = 22
-text = "NEW GAME"
-flat = true
-
-[node name="optiosn" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=1538962542]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_cc0m2")
-theme_override_font_sizes/font_size = 22
-text = "OPTIONS"
-flat = true
-
-[node name="quit" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=1402570105]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_5esrq")
-theme_override_font_sizes/font_size = 22
-text = "QUIT"
-flat = true
-
-[node name="endless" type="Button" parent="main menu/VBoxContainer/Main buttons" unique_id=178084915]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_5esrq")
-theme_override_font_sizes/font_size = 22
-text = "ENDLESS"
-flat = true
-
 [node name="CenterContainer" type="CenterContainer" parent="main menu" unique_id=1943861626]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="main menu/CenterContainer" unique_id=1198721020]
+[node name="mainmenu background art" type="TextureRect" parent="main menu/CenterContainer" unique_id=103771839]
 layout_mode = 2
-text = "CLABS TEXTUREREC ILLUSTRATION"
+offset_transform_enabled = true
+offset_transform_position = Vector2(61.64, 1.54)
+offset_transform_scale = Vector2(0.605, 0.605)
+texture = ExtResource("3_x221g")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="main menu girl" type="TextureRect" parent="main menu/CenterContainer" unique_id=1109635116]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-503.25, -276.94)
+offset_transform_scale = Vector2(0.56, 0.56)
+texture = ExtResource("4_nc6j8")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main menu" unique_id=780207937]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="clabs logo" type="TextureRect" parent="main menu/VBoxContainer" unique_id=1572272165]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-100.865, -63.21)
+offset_transform_scale = Vector2(0.29, 0.29)
+texture = ExtResource("5_jhbtq")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Main buttons" type="VBoxContainer" parent="main menu/VBoxContainer" unique_id=422888132]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 61
+
+[node name="new game" type="TextureButton" parent="main menu/VBoxContainer/Main buttons" unique_id=906763778]
+custom_minimum_size = Vector2(113.425, 47.4)
+propagate_maximum_size = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-62.13, -67.28)
+offset_transform_scale = Vector2(0.295, 0.295)
+texture_normal = ExtResource("6_uavu6")
+texture_pressed = ExtResource("6_uavu6")
+texture_hover = ExtResource("7_vsgdo")
+ignore_texture_size = true
+
+[node name="optiosn" type="TextureButton" parent="main menu/VBoxContainer/Main buttons" unique_id=1838629334]
+custom_minimum_size = Vector2(119.295, 50.04)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-72.33, -75.13)
+offset_transform_scale = Vector2(0.295, 0.295)
+texture_normal = ExtResource("8_sh3jx")
+texture_pressed = ExtResource("8_sh3jx")
+texture_hover = ExtResource("9_07gig")
+ignore_texture_size = true
+
+[node name="quit" type="TextureButton" parent="main menu/VBoxContainer/Main buttons" unique_id=406715639]
+custom_minimum_size = Vector2(20.97, 47.58)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-71.19, -74.375)
+offset_transform_scale = Vector2(0.295, 0.295)
+texture_normal = ExtResource("10_2qtx3")
+texture_pressed = ExtResource("10_2qtx3")
+texture_hover = ExtResource("11_bxac1")
+ignore_texture_size = true
 
 [node name="options panel" type="Panel" parent="." unique_id=1948349460]
+modulate = Color(0.7882353, 0.22745098, 0, 1)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sh3jx")
 
 [node name="options" type="Label" parent="options panel" unique_id=1622012864]
 layout_mode = 1
@@ -118,6 +160,8 @@ offset_left = 19.0
 offset_top = 436.0
 offset_right = 101.0
 offset_bottom = 467.0
+theme_override_fonts/font = SubResource("FontVariation_sh3jx")
+theme_override_font_sizes/font_size = 20
 text = "BACK"
 
 [node name="audio slider" type="HSlider" parent="options panel" unique_id=201735826]
@@ -210,10 +254,7 @@ parameters/looping = true
 [connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/optiosn" to="." method="_on_optiosn_mouse_entered"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/optiosn" to="." method="_on_optiosn_pressed"]
 [connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="main menu/VBoxContainer/Main buttons/quit" to="." method="_on_quit_pressed"]
-[connection signal="mouse_entered" from="main menu/VBoxContainer/Main buttons/endless" to="." method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="main menu/VBoxContainer/Main buttons/endless" to="." method="_on_endless_button_pressed"]
 [connection signal="mouse_entered" from="options panel/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="options panel/back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="options panel/audio slider" to="." method="_on_audio_slider_value_changed"]
