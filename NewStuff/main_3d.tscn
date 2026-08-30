@@ -106,7 +106,7 @@ transform = Transform3D(1.0000007, 0, 0, 0, 1, 0, 0, 0, 1.0000005, 9.92513, 4.20
 transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 4.635704, 4.5547867, -0.2452383)
 
 [node name="Anomaly13" parent="." unique_id=859298411 instance=ExtResource("4_727o5")]
-transform = Transform3D(1.0000004, 0, 0, 0, 1, 0, 0, 0, 1.0000004, -0.095668316, 4.4819813, -1.0411115)
+transform = Transform3D(1.0000004, 0, 0, 0, 1, 0, 0, 0, 1.0000004, -0.095668316, 4.533997, 0.04096079)
 
 [node name="Anomaly6" parent="." unique_id=1584681972 instance=ExtResource("4_727o5")]
 transform = Transform3D(0.9839775, 0, -0.1782927, 0, 1, 0, 0.1782927, 0, 0.98397744, -4.949459, 4.444024, -0.931142)

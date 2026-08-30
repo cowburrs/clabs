@@ -57,3 +57,13 @@ func _on_audio_slider_value_changed(value: float) -> void:
 
 func _on_bgm_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(value))
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_endless_button_pressed() -> void:
+	Gamestate.mode = Gamestate.Mode.ENDLESS
+	get_tree().change_scene_to_packed(TEST)
+	$press.play()

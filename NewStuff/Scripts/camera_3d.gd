@@ -8,6 +8,7 @@ const default_size = 20
 const default_size_zoomed = 5
 var real_position: Vector2
 var score = 0
+var time: float = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +31,15 @@ func zoommove(spd: int, csize: int, delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(score)
+	time += delta
+	if Gamestate.mode == Gamestate.Mode.TIMED:
+		if time > Gamestate.time_limit:
+			$CanvasLayer/GridContainer/Control2/RichTextLabel.visible = false
+			$CanvasLayer/GridContainer2/Control2/RichTextLabel.text = "score: " + str(score)
+			$CanvasLayer/GridContainer2/Control2/RichTextLabel.visible = true
+			$transition.play("blur")
+			get_tree().paused = true
+	$CanvasLayer/GridContainer/Control2/RichTextLabel.text = str(roundf(time * 100) / 100)
 	if zoomed:
 		zoommove(15, default_size_zoomed, delta)
 	else:
