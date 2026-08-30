@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlr6fmm0i8fmw"]
 
-[ext_resource type="Script" uid="uid://bkfpj83g76fmt" path="res://NewStuff/Scripts/main_3d.gd" id="1_5o84p"]
+[ext_resource type="Script" uid="uid://cjjixboerf0q" path="res://NewStuff/Scripts/camera_3d.gd" id="1_5o84p"]
 [ext_resource type="PackedScene" uid="uid://b8i3l2emmem2k" path="res://NewStuff/house.tscn" id="1_dr3ro"]
 [ext_resource type="PackedScene" uid="uid://cxrulsjgqg5da" path="res://NewStuff/player.tscn" id="2_5o84p"]
 [ext_resource type="PackedScene" uid="uid://p34arus5tam7" path="res://NewStuff/Anomaly.tscn" id="4_727o5"]

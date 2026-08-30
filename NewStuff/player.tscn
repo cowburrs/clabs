@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c5yfg0rr1ljdd" path="res://NewStuff/Scripts/player.gd" id="1_bkknw"]
 [ext_resource type="Script" uid="uid://cjjixboerf0q" path="res://NewStuff/Scripts/camera_3d.gd" id="2_k1fhx"]
 [ext_resource type="Shader" uid="uid://d2ld3o3lw0afu" path="res://new_shader.gdshader" id="3_nsn32"]
-[ext_resource type="PackedScene" uid="uid://knsgesg77n6e" path="res://titlescreen/mainmenu.tscn" id="3_rvh3j"]
 [ext_resource type="Texture2D" uid="uid://cxjiuv1wis4as" path="res://NewStuff/Sniperscope.png" id="3_wroap"]
 [ext_resource type="FontFile" uid="uid://7lrnd8fk32y0" path="res://titlescreen/Alphazet-SemiBold.ttf" id="4_02rln"]
 
@@ -116,7 +115,6 @@ shape = SubResource("CapsuleShape3D_i7pll")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5930023, 0.01761198)
 size = 30.0
 script = ExtResource("2_k1fhx")
-home = ExtResource("3_rvh3j")
 
 [node name="ColorRect" type="ColorRect" parent="Node3D/Camera3D" unique_id=223077019]
 process_mode = 3

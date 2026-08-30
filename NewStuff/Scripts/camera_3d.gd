@@ -10,8 +10,6 @@ var real_position: Vector2
 var score = 0
 var time: float = 0
 var end = false
-@export
-var home: PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
